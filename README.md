@@ -49,6 +49,14 @@ Simply write your nukikata per this format.
     "type": "command",
     "command": "pwd"
   },
+  "verify": {
+    "type": "confirm",
+    "message": "Do you want to build a quick web application?"
+  },
+  "one_click_web_app": {
+    "type": "nukikata",
+    "template": "https://github.com/tiangolo/full-stack-fastapi-postgresql"
+  },
   "dump_json": {
     "type": "json",
     "contents": "{{ cookiecutter }}",
