@@ -33,7 +33,7 @@ color_essays:
 democmd:
   type: command
   command: pwd
-  
+
 dump_json:
   type: json
   contents: "{{ nuki }}"
