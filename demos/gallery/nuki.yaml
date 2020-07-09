@@ -2,10 +2,11 @@
 
 help:
   type: print
-  statement: "This demo is to demonstrate how nukikata can hook in other cookiecutters.\nThere
-    are over 4 thousand open source cookiecutters available to start a project with.\n
-    This is a collection of some of the best cookiecutters to build python packages with.
-    \nSeveral of these are very popular (>2k github stars) repos."
+  statement: |
+    This demo is to demonstrate how nukikata can hook in other cookiecutters. There
+    are over 4 thousand open source cookiecutters available to start a project with.
+    This is a collection of some of the best cookiecutters to build python packages
+    with. Several of these are very popular (>2k github stars) repos.
 
 framework_type:
   type: checkbox
