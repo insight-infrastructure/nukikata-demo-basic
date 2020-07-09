@@ -1,0 +1,11 @@
+confirm:
+  type: input
+  default: stuff and things
+  message: |
+    This is an example of a input operator. It takes in a string.
+    
+    Basic example:
+      type: input
+      message: Some message...
+    
+    Returns string

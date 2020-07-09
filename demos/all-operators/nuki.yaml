@@ -1,0 +1,62 @@
+---
+
+hello:
+  type: confirm
+  message: |
+    Here is a run through of the different operators available.
+      There are a couple categories of operators at the moment.
+      They are,
+        - System: Wrap basic python packages and calls
+        - PyInquirer: Produce nice looking prompts and selectors
+        - Cloud: Wraps API calls to cloud providers
+        - Nukikata: Calls other nukikatas/cookiecutters
+    
+      Ready to begin?
+    
+#        - Tools: Wraps commands to other
+#        - Boilerplate: Templates out boilerplate config files
+
+all_ops:
+  type: listdir
+  directory: operators
+
+pyinquirer_ops:
+  type: listdir
+  directory: operators/pyinquirer
+
+system_ops:
+  type: listdir
+  directory: operators/system
+
+cloud_ops:
+  type: listdir
+  directory: operators/cloud
+
+#tools_ops:
+#  type: listdir
+#  directory: operators/tools
+#
+#boilerplate_ops:
+#  type: listdir
+#  directory: operators/boilerplate
+
+op_dirs:
+  type: stat
+  input:
+    pyinquirer: "{{ nuki.pyinquirer_ops}}"
+    system: "{{ nuki.system_ops}}"
+    cloud: "{{ nuki.cloud_ops}}"
+
+ops:
+  type: checkbox
+  message: What operators do you want to checkout? Hit (i) to select all.
+  choices: "{{ nuki.all_ops }}"
+
+operator_run:
+  type: nukikata
+  template: .
+  chdir: "operators/{{ nuki.item}}"
+  context_files: "{{ nuki.op_dirs[nuki.item] }}"
+  when: "{{ nuki.ops|length > 0  }}"
+  loop: "{{ nuki.ops }}"
+

@@ -1,0 +1,11 @@
+confirm:
+  type: confirm
+  message: |
+    This is an example of a basic confirm operator.
+    
+    Example:
+      confirm:
+        type: confirm
+        message: Some message...
+
+    Returns boolean

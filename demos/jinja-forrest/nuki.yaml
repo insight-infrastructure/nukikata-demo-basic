@@ -1,0 +1,110 @@
+---
+welcome:
+  type: confirm
+  message: |
+    Welcome to the Jinja forrest, crazy land of templated diction-oh-god
+    what I am saying. This is a tutorial to walk you through some patterns
+    that might help you learning jinja and how it is used in the context
+    of nukikata.
+    
+intro:
+  type: confirm
+  message: |
+    If you don't know anything about jinja...
+    
+    Jinja is a full featured templating languages used by many web frameworks
+    like flask to deliver rendered content to clients.  This can be html or
+    anything really.  It is heavily used by Ansible as a way to address
+    different things.  Cookiecutter used it for all rendering and we use it
+    primarily in dealing with the following situations which we'll go over.
+    
+      1. Lists and loops
+      2. Conditionals
+      3. Qualifications - WIP
+      4. List comprehensions - WIP
+      5. Advanced string rendering - WIP
+
+example_lists_loops:
+  type: confirm
+  message: |
+    For instance, in the monty-python demo, there was a list that was brought in
+    for a loop.
+
+    colors:
+      type: stat # This operator just inputs a variable
+      input:
+        - name: blue
+        - name: green
+        - name: grey
+
+    color_essays:
+      type: input
+      message: Please tell me how much you like the color {{nuki.item}}?
+      default: Oh color {{nuki.item}}, you are so frickin cool...
+      loop: "{{ nuki.colors }}"
+
+    Here we see a reference to the color list and it iterates over the `nuki.item`
+    as the iterand. Loops are nice for a lot of reasons. For us at
+    insight-infrastructure, we use them to deploy servers in mulitple regions though
+    I am sure people will think of many uses for them as displayed in this demo.
+    
+    To see it action...
+
+colors:
+  type: stat # This operator just inputs a variable
+  input:
+    - name: blue
+    - name: green
+    - name: grey
+
+color_essays:
+  type: input
+  message: Please tell me how much you like the color {{nuki.item}}?
+  default: Oh color {{nuki.item}}, you are so frickin cool...
+  loop: "{{ nuki.colors }}"
+
+example_conditionals:
+  type: confirm
+  message: |
+    The most common use of jinja in nukikata is for expressing conditionals.
+    Setting a variable conditionally is done by including a `when` key to the operator.
+    This is then (like everything that is part of an operator) is rendered to expect a
+    boolean. Here are a couple examples of some of those conditionals.
+    
+    color_essays:
+      type: input
+      message: The sky is {{nuki.item}}...
+      loop: "{{ nuki.colors }}"
+      when: "{{ nuki.colors|length > 0 }}" # This saves an error if the list is empty
+  
+    bad_outcome:
+      type: print
+      statement: Wrong answer {{ nuki.name }}...
+      when: "{{ nuki.wingspeed == 'I donno' }}"
+    
+      This is qualified based on your answer to a previous question. If the previous
+      question was a list, you can then
+    
+    To see it action...
+
+
+wingspeed:
+  type: list
+  message: What is the airspeed velocity of an unladen swallow??
+  choices:
+    - name: I donno
+    - name: What do you mean? African or European swallow?
+
+bad_outcome:
+  type: print
+  statement: Wrong answer {{ nuki.name }}...
+  when: "{{ nuki.wingspeed == 'I donno' }}"
+
+ending:
+  type: confirm
+  message: |
+    The windy journey through jinja forrest is not over as this is a WIP tutorial.
+    All templates are rendered with jinja and there is a large library of extensions
+    and ways to build complex rendering mechanisms with jinja.
+    
+    Stay tuned.

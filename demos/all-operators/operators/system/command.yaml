@@ -1,0 +1,18 @@
+command:
+  type: command
+  command: pwd
+
+confirm_command:
+  type: command
+  command: ls
+  message: |
+    This is an example of a command operator. It runs arbitrary system commands
+    and returns the value of stdout to the variable.
+    
+    command:
+      type: command
+      command: pwd
+
+    It outputs a string per:
+    {% raw %}
+    {{ nuki.command }} = {% endraw %}{{ command.command }}

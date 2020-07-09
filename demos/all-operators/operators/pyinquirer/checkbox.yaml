@@ -1,0 +1,17 @@
+confirm:
+  type: checkbox
+  choices:
+    - stuff
+    - things
+  message: |
+    This is an example of a checkbox operator. It takes in a number of options
+    with a list input and outputs a list.
+    
+    Basic example:
+      type: checkbox
+      message: Some message...
+      choices:
+        - stuff
+        - things
+    
+    Returns list

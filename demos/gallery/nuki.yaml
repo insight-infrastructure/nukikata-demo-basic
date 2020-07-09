@@ -1,0 +1,90 @@
+---
+
+help:
+  type: print
+  statement: "This demo is to demonstrate how nukikata can hook in other cookiecutters.\nThere
+    are over 4 thousand open source cookiecutters available to start a project with.\n
+    This is a collection of some of the best cookiecutters to build python packages with.
+    \nSeveral of these are very popular (>2k github stars) repos."
+
+framework_type:
+  type: checkbox
+  message: What type of project are you building?
+  choices:
+    - name: fastapi
+    - name: flask
+    - name: django
+    - name: data science
+    - name: python package
+
+fastapi_cookiecutter:
+  type: list
+  message: What cookiecutter would you like to use?
+  choices:
+    - https://github.com/tiangolo/full-stack-fastapi-postgresql: tiangolo/full-stack-fastapi-postgresql - 2.2k stars
+    - https://github.com/microsoft/cookiecutter-spacy-fastapi: microsoft/cookiecutter-spacy-fastapi
+    - https://github.com/arthurhenrique/cookiecutter-fastapi: arthurhenrique/cookiecutter-fastapi
+  when: "{{ 'fastapi' in nuki.framework_type }}"
+
+fastapi_nukikata:
+  type: nukikata
+  template: "{{ nuki.fastapi_cookiecutter }}"
+  when: "{{ 'fastapi' in nuki.framework_type }}"
+
+flask_cookiecutter:
+  type: list
+  message: What cookiecutter would you like to use?
+  choices:
+    - https://github.com/cookiecutter-flask/cookiecutter-flask: cookiecutter-flask/cookiecutter-flask - 3.3k stars
+    - https://github.com/karec/cookiecutter-flask-restful: karec/cookiecutter-flask-restful
+    - https://github.com/candidtim/cookiecutter-flask-minimal: candidtim/cookiecutter-flask-minimal
+  when: "{{ 'flask' in nuki.framework_type }}"
+
+flask_nukikata:
+  type: nukikata
+  template: "{{ nuki.flask_cookiecutter }}"
+  when: "{{ 'flask' in nuki.framework_type }}"
+
+django_cookiecutter:
+  type: list
+  message: What django cookiecutter would you like to use?
+  choices:
+    - https://github.com/pydanny/cookiecutter-django: pydanny/cookiecutter-django - 7k stars
+    - https://github.com/pydanny/cookiecutter-djangopackage: pydanny/cookiecutter-djangopackage
+    - https://github.com/agconti/cookiecutter-django-rest: agconti/cookiecutter-django-rest
+    - https://github.com/chopdgd/cookiecutter-django-reactjs: chopdgd/cookiecutter-django-reactjs
+  when: "{{ 'django' in nuki.framework_type }}"
+
+django_nukikata:
+  type: nukikata
+  template: "{{ nuki.django_cookiecutter }}"
+  when: "{{ 'django' in nuki.framework_type }}"
+
+ds_cookiecutter:
+  type: list
+  message: What data science cookiecutter would you like to use?
+  choices:
+    - https://github.com/drivendata/cookiecutter-data-science: drivendata/cookiecutter-data-science - 3.6k stars
+    - https://github.com/manifoldai/docker-cookiecutter-data-science: manifoldai/docker-cookiecutter-data-science
+    - https://github.com/indigo-dc/cookiecutter-data-science: indigo-dc/cookiecutter-data-science
+  when: "{{ 'data science' in nuki.framework_type }}"
+  
+ds_nukikata:
+  type: nukikata
+  template: "{{ nuki.ds_cookiecutter }}"
+  when: "{{ 'data science' in nuki.framework_type }}"
+  
+pypackage_cookiecutter:
+  type: checkbox
+  message: What data science cookiecutter would you like to use?
+  choices:
+    - https://github.com/audreyr/cookiecutter-pypackage: audreyr/cookiecutter-pypackage - 2.6k stars
+    - https://github.com/ionelmc/cookiecutter-pylibrary: ionelmc/cookiecutter-pylibrary
+    - https://github.com/kragniz/cookiecutter-pypackage-minimal: kragniz/cookiecutter-pypackage-minimal
+  when: "{{ 'python package' in nuki.framework_type }}"
+
+pypackage_nukikata:
+  type: nukikata
+  template: "{{ nuki.item }}"
+  when: "{{ 'python package' in nuki.framework_type }}"
+  loop: "{{ nuki.pypackage_cookiecutter }}"

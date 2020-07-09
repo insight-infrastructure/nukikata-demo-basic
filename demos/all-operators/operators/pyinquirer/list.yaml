@@ -1,0 +1,16 @@
+confirm:
+  type: list
+  choices:
+    - stuff
+    - things
+  message: |
+    This is an example of a list operator. It takes in a list and returns on item.
+    
+    Basic example:
+      type: input
+      choices:
+        - stuff
+        - things
+      message: Some message...
+    
+    Returns string

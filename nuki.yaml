@@ -1,40 +1,18 @@
 ---
-name:
-  type: input
-  message: What is your name?
 
-colors:
+demo:
   type: checkbox
-  message: What are your favorite colors?
+  message: What demos do you want to do?
+  checked: true
   choices:
-    - name: blue
-    - name: green
-    - name: grey
-
-wingspeed:
-  type: list
-  message: What is the airspeed velocity of an unladen swallow??
-  choices:
-    - name: I donno
-    - name: What do you mean? African or European swallow?
-
-bad_outcome:
-  type: print
-  statement: Wrong answer {{ nuki.name }}...
-  when: "{{ 'I donno' in nuki.wingspeed }}"
-
-color_essays:
-  type: input
-  message: Please tell me how much you like the color {{nuki.item}}?
-  default: Oh color {{nuki.item}}, you are so frickin cool...
-  loop: "{{ nuki.colors }}"
-  when: "{{ nuki.colors|length > 1 }}"
-
-democmd:
-  type: command
-  command: pwd
-
-dump_json:
-  type: json
-  contents: "{{ nuki }}"
-  path: output.json
+    - gallery: Galllery of the most popular cookiecutters
+    - monty-python: Monty Python - Beginner
+#    - embedded-nuki: Embedded nukikatas - Intermediate
+    - all-the-things: A tutorial of all the operators - Advanced
+    - jinja-forest: A tutorial on jinja, loops, and conditionals - Advanced
+  
+do_demo:
+  type: nukikata
+  template: .
+  chdir: "demos/{{ nuki.item}}"
+  loop: "{{ nuki.demo }}"

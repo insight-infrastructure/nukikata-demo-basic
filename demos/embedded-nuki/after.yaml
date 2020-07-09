@@ -1,0 +1,15 @@
+_output_dir: /home/rob/PycharmProjects/terrace/nukikata-stack-analytics/demo/demos/embedded-nuki
+_template: /home/rob/PycharmProjects/terrace/nukikata-stack-analytics/demo/demos/embedded-nuki
+foo: bar
+stuff_nuki:
+  _output_dir: /home/rob/PycharmProjects/terrace/nukikata-stack-analytics/demo/demos/embedded-nuki/stuffs
+  _template: /home/rob/PycharmProjects/terrace/nukikata-stack-analytics/demo/demos/embedded-nuki/stuffs
+  foo: bar
+  stuff: Indeed
+  things_nuki:
+    _output_dir: /home/rob/PycharmProjects/terrace/nukikata-stack-analytics/demo/demos/embedded-nuki/stuffs/things
+    _template: /home/rob/PycharmProjects/terrace/nukikata-stack-analytics/demo/demos/embedded-nuki/stuffs/things
+    before: null
+    foo: bar
+    stuff: Indeed
+    things: yes please

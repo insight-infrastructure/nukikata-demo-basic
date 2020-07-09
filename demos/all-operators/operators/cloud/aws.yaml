@@ -1,0 +1,41 @@
+aws_enable:
+  type: confirm
+  message: |
+    You can route various AWS Calls that are common. Right now
+      we have some basic helpers that wrap boto commands.
+    
+regions:
+  type: aws_regions
+  
+regions_blurb:
+  type: confirm
+  message: |
+    Here is an example of the regions operator:
+  
+    regions:
+      type: aws_regions
+  
+    It outputs a list per this output:
+    {% raw %}
+    {{ nuki.regions }} = {% endraw %}{{ aws.regions }}
+
+azs:
+  type: aws_azs
+  regions:
+    - us-east-1
+    - us-east-2
+
+azs_blurb:
+  type: confirm
+  message: |
+    Here is an example of the regions operator:
+    
+    azs:
+      type: aws_azs
+      regions:
+        - us-east-1
+        - us-east-2
+        
+    It outputs a list per this output:
+    {% raw %}
+    {{ nuki.azs }} = {% endraw %}{{ aws.azs }}

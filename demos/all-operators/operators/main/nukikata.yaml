@@ -1,0 +1,10 @@
+
+
+docs_confirm:
+  type: confirm
+  message: Do you want to add docs?
+
+docs_nukikata:
+  type: nukikata
+  template: docs
+  when: "{{ nukikata.docs_confirm }}"
