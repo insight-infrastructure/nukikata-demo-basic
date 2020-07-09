@@ -4,7 +4,7 @@ Simple demo to introduce the format and features for [`nukikata`](https://github
 
 ```
 pip install nukikata 
-nukikata https://github.com/insight-infrastructure/nukikata-demo-monty
+nukikata https://github.com/insight-infrastructure/nukikata-demos
 cat ./output.json 
 ```
 
