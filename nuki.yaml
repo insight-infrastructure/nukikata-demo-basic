@@ -5,14 +5,15 @@ demo:
   message: What demos do you want to do?
   checked: true
   choices:
+    - monty-python: Monty Python basic demo
     - gallery: Galllery of the most popular cookiecutters
-    - monty-python: Monty Python - Beginner
-#    - embedded-nuki: Embedded nukikatas - Intermediate
-    - all-the-things: A tutorial of all the operators - Advanced
-    - jinja-forest: A tutorial on jinja, loops, and conditionals - Advanced
+    #    - embedded-nuki: Embedded nukikatas
+    - all-operators: A tutorial of all the operators
+    - jinja-forrest: A tutorial on useful patterns with jinja
   
 do_demo:
   type: nukikata
   template: .
   chdir: "demos/{{ nuki.item}}"
   loop: "{{ nuki.demo }}"
+  when: "{{ nuki.demo|length > 0 }}"

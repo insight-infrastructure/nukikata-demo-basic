@@ -3,8 +3,7 @@ command:
   command: pwd
 
 confirm_command:
-  type: command
-  command: ls
+  type: confirm
   message: |
     This is an example of a command operator. It runs arbitrary system commands
     and returns the value of stdout to the variable.

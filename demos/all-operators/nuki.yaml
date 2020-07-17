@@ -20,33 +20,6 @@ all_ops:
   type: listdir
   directory: operators
 
-pyinquirer_ops:
-  type: listdir
-  directory: operators/pyinquirer
-
-system_ops:
-  type: listdir
-  directory: operators/system
-
-cloud_ops:
-  type: listdir
-  directory: operators/cloud
-
-#tools_ops:
-#  type: listdir
-#  directory: operators/tools
-#
-#boilerplate_ops:
-#  type: listdir
-#  directory: operators/boilerplate
-
-op_dirs:
-  type: stat
-  input:
-    pyinquirer: "{{ nuki.pyinquirer_ops}}"
-    system: "{{ nuki.system_ops}}"
-    cloud: "{{ nuki.cloud_ops}}"
-
 ops:
   type: checkbox
   message: What operators do you want to checkout? Hit (i) to select all.
@@ -54,9 +27,7 @@ ops:
 
 operator_run:
   type: nukikata
-  template: .
   chdir: "operators/{{ nuki.item}}"
-  context_files: "{{ nuki.op_dirs[nuki.item] }}"
   when: "{{ nuki.ops|length > 0  }}"
   loop: "{{ nuki.ops }}"
 

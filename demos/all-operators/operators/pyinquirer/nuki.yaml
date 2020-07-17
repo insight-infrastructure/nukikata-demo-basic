@@ -1,0 +1,15 @@
+---
+
+ops:
+  type: stat
+  input:
+    - confirm
+    - input
+    - list
+    - checkbox
+
+operator_run:
+  type: nukikata
+  template: .
+  context_file: "{{ nuki.item }}.yaml"
+  loop: "{{ nuki.ops }}"

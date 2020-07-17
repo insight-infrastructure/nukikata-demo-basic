@@ -87,5 +87,6 @@ pypackage_cookiecutter:
 pypackage_nukikata:
   type: nukikata
   template: "{{ nuki.item }}"
+  overwrite_if_exists: true
   when: "{{ 'python package' in nuki.framework_type }}"
   loop: "{{ nuki.pypackage_cookiecutter }}"

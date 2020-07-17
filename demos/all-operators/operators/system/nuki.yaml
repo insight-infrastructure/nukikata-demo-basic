@@ -1,0 +1,14 @@
+---
+
+ops:
+  type: stat
+  input:
+    - command
+    - listdir
+    - jinja
+
+operator_run:
+  type: nukikata
+  template: .
+  context_file: "{{ nuki.item }}.yaml"
+  loop: "{{ nuki.ops }}"

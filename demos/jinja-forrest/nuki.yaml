@@ -36,19 +36,20 @@ example_lists_loops:
         - name: blue
         - name: green
         - name: grey
-
+    {% raw %}
+  
     color_essays:
-      type: input
-      message: Please tell me how much you like the color {{nuki.item}}?
-      default: Oh color {{nuki.item}}, you are so frickin cool...
-      loop: "{{ nuki.colors }}"
-
-    Here we see a reference to the color list and it iterates over the `nuki.item`
-    as the iterand. Loops are nice for a lot of reasons. For us at
-    insight-infrastructure, we use them to deploy servers in mulitple regions though
-    I am sure people will think of many uses for them as displayed in this demo.
-    
-    To see it action...
+        type: input
+        message: Please tell me how much you like the color {{nuki.item}}?
+        default: Oh color {{nuki.item}}, you are so frickin cool...
+        loop: "{{ nuki.colors }}"
+  
+      Here we see a reference to the color list and it iterates over the `nuki.item`
+      as the iterand. Loops are nice for a lot of reasons. For us at
+      insight-infrastructure, we use them to deploy servers in mulitple regions though
+      I am sure people will think of many uses for them as displayed in this demo.
+      
+      To see it action...{% endraw %}
 
 colors:
   type: stat # This operator just inputs a variable
@@ -70,7 +71,7 @@ example_conditionals:
     Setting a variable conditionally is done by including a `when` key to the operator.
     This is then (like everything that is part of an operator) is rendered to expect a
     boolean. Here are a couple examples of some of those conditionals.
-    
+    {% raw %}
     color_essays:
       type: input
       message: The sky is {{nuki.item}}...
@@ -85,7 +86,7 @@ example_conditionals:
       This is qualified based on your answer to a previous question. If the previous
       question was a list, you can then
     
-    To see it action...
+    To see it action...{% endraw %}
 
 
 wingspeed:

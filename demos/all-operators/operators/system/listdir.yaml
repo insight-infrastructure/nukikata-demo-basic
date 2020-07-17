@@ -1,0 +1,21 @@
+hold:
+  type: confirm
+  message: hold listdir
+
+listdir:
+  type: listdir
+  directory: .
+
+confirm_listdir:
+  type: confirm
+  message: |
+    This is an example of a listdir operator. It outputs a list of files and folders
+    based on a given path.  Has a few options per below.
+    
+    listdir:
+      type: listdir
+      path: {{ cwd }} # We have special variables too!
+    
+    It outputs a string per:
+    {% raw %}
+    {{ listdir.listdir }} = {% endraw %}{{ listdir.listdir }}

@@ -1,10 +1,35 @@
+---
 
-
-docs_confirm:
+local_nukikata_confirm:
   type: confirm
-  message: Do you want to add docs?
+  message: |
+    Here is an example of the most important operator, the nukikata operator.
+    It allows you to call other cookiecutters / nukikatas and therefor build
+    modular / heirarchial sets of instructions. It wraps the main.cookiecutter
+    function. The output of this call produces the context that was built during
+    the call which is helpful in a variety of ways.
+    
+    Example:
+    {% raw %}
+    # In the templates folder you find a classic cookiecutter file structure
+    local_nukikata:
+      type: nukikata
+      template: templates
+      when: "{{ nukikata.docs_confirm }}"
+      overwrite_if_exists: true {% endraw %}
+   
 
-docs_nukikata:
+local_nukikata:
   type: nukikata
-  template: docs
-  when: "{{ nukikata.docs_confirm }}"
+  template: templates
+  when: "{{ nukikata.local_nukikata_confirm }}"
+  overwrite_if_exists: true
+
+local_nukikata_confirm2:
+  type: confirm
+  message: |
+    It outputs a map per this output:
+    {% raw %}
+    {{ nuki.local_nukikata }} = {% endraw %}{{ nukikata.local_nukikata }}
+    
+    This is very helpful when trying to stitch together different contexts.
