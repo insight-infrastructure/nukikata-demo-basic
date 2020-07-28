@@ -1,15 +1,34 @@
-_output_dir: /home/rob/PycharmProjects/terrace/nukikata-stack-analytics/demo/demos/embedded-nuki
-_template: /home/rob/PycharmProjects/terrace/nukikata-stack-analytics/demo/demos/embedded-nuki
-foo: bar
-stuff_nuki:
-  _output_dir: /home/rob/PycharmProjects/terrace/nukikata-stack-analytics/demo/demos/embedded-nuki/stuffs
-  _template: /home/rob/PycharmProjects/terrace/nukikata-stack-analytics/demo/demos/embedded-nuki/stuffs
-  foo: bar
-  stuff: Indeed
-  things_nuki:
-    _output_dir: /home/rob/PycharmProjects/terrace/nukikata-stack-analytics/demo/demos/embedded-nuki/stuffs/things
-    _template: /home/rob/PycharmProjects/terrace/nukikata-stack-analytics/demo/demos/embedded-nuki/stuffs/things
-    before: null
-    foo: bar
-    stuff: Indeed
-    things: yes please
+_output_dir: /home/rob/PycharmProjects/terrace/nukikata-stack-analytics/demo/demos/embedded-nuki/stuffs/things
+_template: .
+before: null
+chdir: true
+context_building: true
+hello: true
+intro: true
+output_context: true
+remote: true
+remote_demo: true
+remote_show:
+- cookiecutter-pylibrary
+- nukikata-installs
+- cookiecutter-python-app
+- cookiecutter-flask
+- cookiecutter-data-science
+- terraform-polkadot-aws-asg
+- nukikata-insight-testing
+- cookiecutter-pipproject
+- terraform-polkadot-k8s-config
+- pyramid-cookiecutter-starter
+- cookiecutter-pypackage
+- cookiecutter-django
+- nukikata-demos
+- nukikata-demo-monty
+- nukikata-demo-cookiecutters
+- cookiecutter-terraform-terratest-aws
+- nukikata
+- terraform-polkadot-aws-network
+- nukikata-test-repo
+- cookiecutter-fastapi
+- full-stack-fastapi-postgresql
+stuff: All of it...
+things: Yes please!

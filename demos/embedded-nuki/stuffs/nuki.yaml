@@ -1,0 +1,11 @@
+---
+
+stuff: Indeed
+
+things_nuki:
+  type: nukikata
+  context_file: thing.yaml
+  no_input: true
+  chdir: things
+  merge: true  # See how this affects the output.
+  existing_context: "{{ nuki }}"

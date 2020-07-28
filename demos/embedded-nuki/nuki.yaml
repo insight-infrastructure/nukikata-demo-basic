@@ -1,28 +1,115 @@
 ---
-foo: bar
 
-#debug:
-#  type: print
-#  statement: "{{ nuki }}"
-#
-#stop:
-#  type: confirm
-#  message: stop
-#
-#before:
-#  type: yaml
-#  path: before.yaml
-#  contents: "{{ nuki }}"
+hello:
+  type: confirm
+  message: |
+    One of the most powerful aspects of nukikata is embedding nukikatas within
+    nukikatas. This demo is supposed to show some of the strategies around
+    handling this type of pattern.
 
-stuff_nuki:
+    Ready to get started?
+
+intro:
+  type: confirm
+  message: |
+    
+    There are two basic ways of calling another nukikata.
+    1. Call another nukikata that is remote.
+    2. Call another nukikata localy, ie from same repo or file structure
+
+    When writing a call to a nukikata, you put the remote repository in the
+    `template` field of the nukikata like so.
+
+    remote_nukikata:
+      type: nukikata
+      template: https://github.com/insight-infrastructure/nukikata-demos
+
+    For local nukikata's, you put the path in the `template` field like so.
+
+    local_nukikata:
+      type: nukikata
+      template: path/to/some/dir  # With a nuki.yaml file
+
+remote:
+  type: confirm
+  message: |
+    
+    The only real difference between these two situations is what the current
+    working directory is. For instance when calling a remote nukikata on GitHub,
+    the repo is first cloned to a `~/.cookiecutters` folder and the working
+    directory is switched to that context.
+
+remote_show:
+  type: listdir
+  path: ~/.cookiecutters
+
+remote_demo:
+  type: confirm
+  message: |
+    
+    For instance the following is the contents of that directory.
+
+    {{ nuki.remote_show }}
+
+    You can see the all the cookiecutters that you have downloaded there.
+    When the nukikata is done executing, it will return to the context it
+    was called from. This is done so that remote nukikata's can reference
+    local files to the repo in the call.
+
+chdir:
+  type: confirm
+  message: |
+    
+    If you want to execute the nukikata from any directory, us the `chdir`
+    parameter like so.
+
+    any_nukikata:
+      type: nukikata
+      template: path/to/some/dir  # With a nuki.yaml file
+      chdir: path/to/the/dir/you/want/to/execute/from
+
+output_context:
+  type: confirm
+  message: |
+    
+    Any variables that you set in the embedded nukikata will be output as a
+    dictionary under that variable. They can also be merged up to the parent
+    context by adding the `merge: true` parameter like so.
+
+    any_nukikata:
+      type: nukikata
+      template: path/to/some/dir
+      merge: true
+
+context_building:
+  type: confirm
+  message: |
+
+    The last important note about calling embedded nukikata's is that if you
+    want to bring in the `existing_context`, ie the current variables that you
+    have set, you can bring them in this way regardless of local or remote.
+    {% raw %}
+    local_nukikata:
+      type: nukikata
+      template: path/to/some/dir
+      existing_context: {{ nuki }}  # This is super common
+    {% endraw %}
+
+stuff_nukikata:
   type: nukikata
-  template: .
-  context_file: stuff.yaml
-  no_input: true
-  chdir: stuffs
-  existing_context: "{{ nuki }}"
+  template: stuffs
+  no_input: false
+  merge: true
 
 after:
   type: yaml
   path: after.yaml
   contents: "{{ nuki }}"
+
+final:
+  type: confirm
+  message: |
+    
+    To see it all in action, checkout the demo directly and see what is
+    happening in this folder with the previously called items. Specifically,
+    observe how variables were overriden in the embedded nukikata.

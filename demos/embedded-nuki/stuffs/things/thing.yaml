@@ -1,0 +1,10 @@
+---
+
+things: Yes please!
+stuff: All of it...
+
+before:
+  type: yaml
+  path: before.yaml
+  contents: "{{ thing }}"
+

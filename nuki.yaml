@@ -6,10 +6,10 @@ demo:
   checked: true
   choices:
     - monty-python: Monty Python basic demo
-    - gallery: Galllery of the most popular cookiecutters
-    #    - embedded-nuki: Embedded nukikatas
+    - embedded-nuki: Embedded nukikatas
     - all-operators: A tutorial of all the operators
     - jinja-forrest: A tutorial on useful patterns with jinja
+    - gallery: Galllery of the most popular cookiecutters
   
 do_demo:
   type: nukikata
