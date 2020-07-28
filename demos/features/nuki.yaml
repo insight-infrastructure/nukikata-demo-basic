@@ -1,0 +1,17 @@
+
+
+hello:
+  type: confirm
+  message: |
+    Just as a brief review, here are some of the features that have been
+    built into nukikata.
+  
+    - Evolving context
+    - Private variables
+    - Special variables
+    - Merge output
+    - Changing working directory
+    - Filtering and naming conventions
+    
+    Ready?
+    

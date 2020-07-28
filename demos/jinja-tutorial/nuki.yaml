@@ -2,10 +2,8 @@
 welcome:
   type: confirm
   message: |
-    Welcome to the Jinja forrest, crazy land of templated diction-oh-god
-    what I am saying. This is a tutorial to walk you through some patterns
-    that might help you learning jinja and how it is used in the context
-    of nukikata.
+    This is a tutorial to walk you through some patterns that might help
+    you learning jinja and how it is used in the context of nukikata.
     
 intro:
   type: confirm
@@ -33,9 +31,9 @@ example_lists_loops:
     colors:
       type: stat # This operator just inputs a variable
       input:
-        - name: blue
-        - name: green
-        - name: grey
+        - blue
+        - green
+        - grey
     {% raw %}
   
     color_essays:
@@ -54,9 +52,9 @@ example_lists_loops:
 colors:
   type: stat # This operator just inputs a variable
   input:
-    - name: blue
-    - name: green
-    - name: grey
+    - blue
+    - green
+    - grey
 
 color_essays:
   type: input
@@ -93,8 +91,8 @@ wingspeed:
   type: list
   message: What is the airspeed velocity of an unladen swallow??
   choices:
-    - name: I donno
-    - name: What do you mean? African or European swallow?
+    - I donno
+    - What do you mean? African or European swallow?
 
 bad_outcome:
   type: print
@@ -104,8 +102,7 @@ bad_outcome:
 ending:
   type: confirm
   message: |
-    The windy journey through jinja forrest is not over as this is a WIP tutorial.
-    All templates are rendered with jinja and there is a large library of extensions
-    and ways to build complex rendering mechanisms with jinja.
+    
+    This is a WIP tutorial.
     
     Stay tuned.

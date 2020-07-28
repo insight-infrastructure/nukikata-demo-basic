@@ -7,16 +7,16 @@ colors:
   type: checkbox
   message: What are your favorite colors?
   choices:
-    - name: blue
-    - name: green
-    - name: grey
+    - blue
+    - green
+    - grey
 
 wingspeed:
   type: list
   message: What is the airspeed velocity of an unladen swallow??
   choices:
-    - name: I donno
-    - name: What do you mean? African or European swallow?
+    - I donno
+    - What do you mean? African or European swallow?
 
 bad_outcome:
   type: print
@@ -34,7 +34,7 @@ democmd:
   type: command
   command: pwd
 
-dump_json:
-  type: json
-  contents: "{{ nuki }}"
-  path: output.json
+print_output:
+  type: pprint
+  statement: "{{ nuki }}"
+
