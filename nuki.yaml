@@ -17,3 +17,16 @@ do_demo:
   chdir: "demos/{{ nuki.item}}"
   loop: "{{ nuki.demo }}"
   when: "{{ nuki.demo|length > 0 }}"
+
+no_selected_demo_warning:
+  type: confirm
+  when: "{{ nuki.demo|length == 0 }}"
+  message: |
+    You need to select a demo with the `space bar`.
+    
+    Do you want to try again?
+
+no_selected_demo:
+  type: nukikata
+  template: https://github.com/insight-infrastructure/nukikata-demos
+  when: "{{ nuki.no_selected_demo_warning }}"
