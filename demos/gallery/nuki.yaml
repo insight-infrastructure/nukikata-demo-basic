@@ -12,11 +12,11 @@ framework_type:
   type: checkbox
   message: What type of project are you building?
   choices:
-    - name: fastapi
-    - name: flask
-    - name: django
-    - name: data science
-    - name: python package
+    - fastapi
+    - flask
+    - django
+    - data science
+    - python package
 
 fastapi_cookiecutter:
   type: list
