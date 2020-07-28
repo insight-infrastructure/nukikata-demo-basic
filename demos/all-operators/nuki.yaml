@@ -18,7 +18,7 @@ hello:
 
 all_ops:
   type: listdir
-  directory: operators
+  path: operators
 
 ops:
   type: checkbox

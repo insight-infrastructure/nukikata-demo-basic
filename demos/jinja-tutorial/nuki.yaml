@@ -96,7 +96,7 @@ wingspeed:
 
 bad_outcome:
   type: print
-  statement: Wrong answer {{ nuki.name }}...
+  statement: Wrong answer...
   when: "{{ nuki.wingspeed == 'I donno' }}"
 
 ending:

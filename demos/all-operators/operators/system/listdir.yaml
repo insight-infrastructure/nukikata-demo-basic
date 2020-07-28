@@ -4,7 +4,7 @@ hold:
 
 listdir:
   type: listdir
-  directory: .
+  path: .
 
 confirm_listdir:
   type: confirm
