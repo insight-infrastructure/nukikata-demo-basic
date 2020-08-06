@@ -1,5 +1,5 @@
 confirm:
-  type: list
+  type: select
   choices:
     - stuff
     - things

@@ -27,7 +27,7 @@ colors:
     - grey
 
 wingspeed:
-  type: list
+  type: select
   message: What is the airspeed velocity of an unladen swallow??
   choices:
     - I donno

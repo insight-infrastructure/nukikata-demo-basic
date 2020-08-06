@@ -19,7 +19,7 @@ framework_type:
     - python package
 
 fastapi_cookiecutter:
-  type: list
+  type: select
   message: What cookiecutter would you like to use?
   choices:
     - https://github.com/tiangolo/full-stack-fastapi-postgresql: tiangolo/full-stack-fastapi-postgresql - 2.2k stars
@@ -33,7 +33,7 @@ fastapi_nukikata:
   when: "{{ 'fastapi' in nuki.framework_type }}"
 
 flask_cookiecutter:
-  type: list
+  type: select
   message: What cookiecutter would you like to use?
   choices:
     - https://github.com/cookiecutter-flask/cookiecutter-flask: cookiecutter-flask/cookiecutter-flask - 3.3k stars
@@ -47,7 +47,7 @@ flask_nukikata:
   when: "{{ 'flask' in nuki.framework_type }}"
 
 django_cookiecutter:
-  type: list
+  type: select
   message: What django cookiecutter would you like to use?
   choices:
     - https://github.com/pydanny/cookiecutter-django: pydanny/cookiecutter-django - 7k stars
@@ -62,7 +62,7 @@ django_nukikata:
   when: "{{ 'django' in nuki.framework_type }}"
 
 ds_cookiecutter:
-  type: list
+  type: select
   message: What data science cookiecutter would you like to use?
   choices:
     - https://github.com/drivendata/cookiecutter-data-science: drivendata/cookiecutter-data-science - 3.6k stars
